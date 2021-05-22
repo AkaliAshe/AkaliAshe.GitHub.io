@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://akaliashe.github.io</id>
     <title>幻樱杀缭乱</title>
-    <updated>2021-05-22T14:46:46.270Z</updated>
+    <updated>2021-05-22T16:30:06.023Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://akaliashe.github.io"/>
     <link rel="self" href="https://akaliashe.github.io/atom.xml"/>
@@ -10,6 +10,101 @@
     <logo>https://akaliashe.github.io/images/avatar.png</logo>
     <icon>https://akaliashe.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 幻樱杀缭乱</rights>
+    <entry>
+        <title type="html"><![CDATA[N1 刷 Flippy 固件，设置旁路由]]></title>
+        <id>https://akaliashe.github.io/post/n1-shua-flippy-gu-jian-she-zhi-pang-lu-you/</id>
+        <link href="https://akaliashe.github.io/post/n1-shua-flippy-gu-jian-she-zhi-pang-lu-you/">
+        </link>
+        <updated>2021-05-22T16:18:53.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>本文由 <a href="http://ksria.com/simpread/">简悦 SimpRead</a> 转码， 原文地址 <a href="https://qust.me/post/n1Reinstall/">qust.me</a></p>
+</blockquote>
+<p>这篇主要介绍 n1 如何重新刷入系统，买到手想换个系统或者弄错了想重新刷入系统的朋友都可以参考下。</p>
+<h2 id="准备">准备</h2>
+<ol>
+<li>一台 n1，和 n1 的电源线</li>
+<li>一个 U 盘，最好是 USB 2.0 的。（由于 n1 的问题很多 USB 3.0 U 盘不兼容，导致速度极慢或者直接无法使用）</li>
+<li>下载 <a href="https://www.right.com.cn/forum/thread-4076037-1-1.html">n1 的系统包</a>（这里推荐 flippy 的百度云里选择 “N1-Openwrt_U 盘直刷包”，功能丰富，更新稳定）</li>
+<li>下载 <a href="https://www.balena.io/etcher/">Etcher</a> U 盘 刻录工具</li>
+<li>电脑 （Win Mac 均可）</li>
+</ol>
+<h2 id="刷入-u-盘-系统">刷入 U 盘 系统</h2>
+<figure data-type="image" tabindex="1"><img src="https://oss.qust.me/img/20201116211511.png" alt="" loading="lazy"></figure>
+<p>解压下载后的固件，打开 etcher 选择好刚解压好的包和对应 U 盘，选择 Flash 刷入即可。</p>
+<h2 id="u-盘系统刷入-n1">U 盘系统刷入 n1</h2>
+<figure data-type="image" tabindex="2"><img src="https://oss.qust.me/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202020-11-16%20212943.png" alt="" loading="lazy"></figure>
+<p>刷好系统的 U 盘 插上 n1，再接上电源，稍等一两分钟你应该就能都搜索到名是 “openwrt” 无密码的 WiFi。（此时其实已经可以用了，只是系统在 U 盘 上，如果喜欢一直插着 U 盘 这样使用也没问题）。</p>
+<p>连接上 wifi，浏览器打开 192.168.1.1，密码默认是 password，然后即可进入路由器后台。</p>
+<figure data-type="image" tabindex="3"><img src="https://oss.qust.me/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202020-11-16%20213614.png" alt="" loading="lazy"></figure>
+<p>在后台选择 系统 - TTY 终端，打开后输入 root 回车，然后输入 password 回车（输入的密码不会显示，输完回车就好）。</p>
+<figure data-type="image" tabindex="4"><img src="https://oss.qust.me/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202020-11-16%20213911.png" alt="" loading="lazy"></figure>
+<p>进入系统后输入 ./inst-to-emmc.sh 回车，然后确认按 y ，就开始刷入 n1 系统了，稍等几分钟就会提示刷好。</p>
+<figure data-type="image" tabindex="5"><img src="https://oss.qust.me/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202020-11-16%20214059.png" alt="" loading="lazy"></figure>
+<h2 id="设置-n1-旁路由">设置 n1 旁路由</h2>
+<p>刷完后拔掉 U 盘再插电启动，连上 openwrt wifi，输入 password 进入后台。</p>
+<p>选择 网络 - 接口 - lan 修改。</p>
+<figure data-type="image" tabindex="6"><img src="https://oss.qust.me/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202020-11-16%20214608.png" alt="" loading="lazy"></figure>
+<p>一般配置里：</p>
+<figure data-type="image" tabindex="7"><img src="https://oss.qust.me/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202020-11-16%202152111.png" alt="" loading="lazy"></figure>
+<ul>
+<li>IPv4 地址：设置成目前你路由器网段中的一个地址，只用修改目前路由器后台中的最后一位，例如你以前路由器的后台地址是 192.168.3.1 ，这里你设置成 192.168.3.X（X 在 2-255 区间都可以）我这里设置成 192.168.3.8 。</li>
+<li>IPv4 子网掩码: 设置成 255.255.255.0 即可。</li>
+<li>IPv4 网关: 设置成你自己之前路由器后台地址 ，我这里是 192.168.3.1</li>
+<li>DNS 服务器：你自己之前路由器后台地址 和 8.8.8.8 即可。（我这里是 192.168.3.1 和 8.8.8.8）</li>
+</ul>
+<p>高级设置里：</p>
+<figure data-type="image" tabindex="8"><img src="https://oss.qust.me/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202020-11-16%20220150.png" alt="" loading="lazy"></figure>
+<pre><code>* 强制 DHCP： 勾选
+* 强制：勾选
+* IPv4 子网掩码: 设置成 255.255.255.0 即可。
+* DHCP 选项：设置成 “3,上面设置的 IPv4地址” 和 “6, 上面设置的 IPv4地址”。（我这里设置成 3,192.168.3.8 和 6,192.168.3.8 记住填写的是英文逗号，你可以复制我的修改）
+
+
+</code></pre>
+<p>然后选择保存应用。</p>
+<h2 id="最后">最后</h2>
+<p>将 n1 网线接到你的主路由器 lan 口，在你的主路由器里关闭 DHCP 选项（不同路由器位置不同，基本都有这个选项），然后重启下路由器即可。（可以通过连接主路由 wifi，然后手机上查看 wifi 详情看网关 是否是 n1 IP，如果是则 n1 成功接管）</p>
+<ul>
+<li>
+<p>主路由的后台地址没有变，n1 的后台地址变成了上一步中的 IPv4 地址。</p>
+</li>
+<li>
+<p>如果你想解除 n1，先打开主路由器 DHCP 选项，然后拿掉 n1 即可。</p>
+</li>
+</ul>
+<h2 id="斐讯n1配置旁路由后无法访问网络">斐讯n1配置旁路由后无法访问网络</h2>
+<p>斐讯 n1 做旁路由，碰见部分路由器做主路由例如：小米、华为、linksys 等经常会碰见配置好旁路由设置无法上网，或者国内网络无法打开，或国内网络很慢。</p>
+<p>参考了恩山 这个帖子 [N1 盒子] <a href="https://www.right.com.cn/FORUM/thread-2983767-1-1.html">【终极指南】关于 N1 做旁路由添加 iptables 自定义防火墙规则的见解</a></p>
+<h3 id="方法一">方法一</h3>
+<ul>
+<li>选择 <strong>网络</strong> — <strong>防火墙</strong> — <strong>自定义防火墙</strong> 末尾添加上这段</li>
+</ul>
+<figure data-type="image" tabindex="9"><img src="https://oss.qust.me/img/20200523120019.jpg" alt="" loading="lazy"></figure>
+<pre><code>iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
+
+
+</code></pre>
+<p>解释：用来 “iptables 修改 NAT 表，使经过 eth0 的网卡的流量的源 IP 伪装成 eth0 的 IP，而且是动态伪装（直接读取 eth0 的 IP 地址）”</p>
+<h3 id="方法二">方法二</h3>
+<p>我个人因为试过的路由器比较多，方法一碰见很多路由器其实没啥作用。这里添加 wan 口就可以。</p>
+<ul>
+<li>
+<p>第一步：打开 <strong>网络</strong>—<strong>接口</strong>—<strong>lan 修改</strong>—<strong>物理设置</strong></p>
+<figure data-type="image" tabindex="10"><img src="https://oss.qust.me/img/20200523120418.jpg" alt="" loading="lazy"></figure>
+<p>取消勾选桥接接口，下面选择 “以太网适配器: &quot;eth0()&quot;” 保存应用</p>
+</li>
+<li>
+<p>第二步 打开 <strong>网络</strong>—<strong>接口</strong>—<strong>添加新接口</strong></p>
+<figure data-type="image" tabindex="11"><img src="https://oss.qust.me/img/20200523120742.jpg" alt="" loading="lazy"></figure>
+<p>新的接口名称：wan</p>
+<p>新接口的协议：DHCP 客户端</p>
+<p>包含以下接口选择：“以太网适配器: &quot;eth0()&quot;”</p>
+<p>然后点提交</p>
+</li>
+</ul>
+<p>这时候应该都解决问题，能打开网站了。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[你的家庭小药箱，从这 8 种非处方药开始]]></title>
         <id>https://akaliashe.github.io/post/ni-de-jia-ting-xiao-yao-xiang-cong-zhe-8-chong-fei-chu-fang-yao-kai-shi/</id>
