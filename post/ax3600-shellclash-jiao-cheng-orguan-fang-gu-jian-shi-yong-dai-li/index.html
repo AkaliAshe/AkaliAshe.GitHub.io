@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AX3600 ShellClash 教程｜官方固件使用代理 | 幻樱杀缭乱</title>
-<link rel="shortcut icon" href="https://akaliashe.github.io/favicon.ico?v=1622855204383">
+<link rel="shortcut icon" href="https://akaliashe.github.io/favicon.ico?v=1622905823844">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://akaliashe.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="AX3600 ShellClash 教程｜官方固件使用代理 | 幻樱杀缭乱 - Atom Feed" href="https://akaliashe.github.io/atom.xml">
@@ -24,7 +24,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://akaliashe.github.io">
-  <img class="avatar" src="https://akaliashe.github.io/images/avatar.png?v=1622855204383" alt="">
+  <img class="avatar" src="https://akaliashe.github.io/images/avatar.png?v=1622905823844" alt="">
   </a>
   <h1 class="site-title">
     幻樱杀缭乱
@@ -124,55 +124,41 @@
 <h3 id="备份">备份</h3>
 <p>现在应该可以通过 ssh 连接到 小米 AX3600 了，终端里执行（密码是 admin）</p>
 <pre><code>ssh root@192.168.31.1
-
-
 </code></pre>
 <p>在小米 AX3600 上执行</p>
 <pre><code>mkdir /tmp/syslogbackup/
 dd if=/dev/mtd9 of=/tmp/syslogbackup/mtd9
-
-
 </code></pre>
 <p>浏览器请求该地址下载备份 http://192.168.31.1/backup/log/mtd9</p>
 <h3 id="固化-ssh">固化 SSH</h3>
 <p>在电脑上将下载好的 fuckax3600 上传到小米 AX3600 的根目录（fuckax3600 路径下执行）</p>
 <pre><code>scp fuckax3600 root@192.168.31.1:/tmp
-
-
 </code></pre>
 <p>然后在小米 AX3600 上执行</p>
 <pre><code>chmod +x /tmp/fuckax3600
 /tmp/fuckax3600 unlock
-
-
 </code></pre>
 <p>系统会自动重启</p>
 <p>重新 SCP 上传一遍脚本（因为 tmp 重启会被清空）</p>
 <pre><code>scp fuckax3600 root@192.168.31.1:/tmp
-
-
 </code></pre>
 <p>SSH 重新连接上小米 AX3600 后，执行</p>
 <pre><code>chmod +x /tmp/fuckax3600
 /tmp/fuckax3600 hack
 /tmp/fuckax3600 lock
-
-
 </code></pre>
 <p>这会设置永久的 ssh、telnet、uart 权限，也会计算出<strong>默认的密码，记得保存</strong></p>
 <p>备注：如果升级后丢失 SSH 权限，你也可以 telnet 连接上 AX3600 后执行，即可恢复 SSH。</p>
-<p>telnet 192.168.31.1 （用户名是 root，密码是刚才得出的密码）</p>
+<pre><code>telnet 192.168.31.1
+</code></pre>
+<p>（用户名是 root，密码是刚才得出的密码）</p>
 <p>如果你的电脑提示没有 telnet，<strong><a href="https://help.aliyun.com/document_detail/40796.html">Windows 打开 telnet 教程</a></strong>，Mac 则是先安装 brew 再通过 brew 安装 telnet。</p>
 <pre><code>sed -i 's/channel=.*/channel=&quot;debug&quot;/g' /etc/init.d/dropbear
 /etc/init.d/dropbear start
-
-
 </code></pre>
 <h2 id="安装使用-shellclash">安装使用 ShellClash</h2>
 <p>SSH 连接上小米 AX3600 执行安装（<strong>请不要使用 telnet 连接安装 ShellClash，否则会乱码</strong>；如果执行提示 ssh 连接不上请检查上一步是否执行了）</p>
 <pre><code>sh -c &quot;$(curl -kfsSl https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/install.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/null
-
-
 </code></pre>
 <figure data-type="image" tabindex="2"><img src="https://oss.qust.me/img/%E6%88%AA%E5%B1%8F2021-05-06%20%E4%B8%8B%E5%8D%887.55.06.jpg" alt="" loading="lazy"></figure>
 <p>选择 1 安装到 /etc，然后再选择 1 确认安装。</p>
