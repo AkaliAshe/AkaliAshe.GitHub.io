@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AX3600 ShellClash 教程｜官方固件使用代理 | 幻樱杀缭乱</title>
-<link rel="shortcut icon" href="https://akaliashe.github.io/favicon.ico?v=1622905823844">
+<link rel="shortcut icon" href="https://akaliashe.github.io/favicon.ico?v=1622905951961">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://akaliashe.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="AX3600 ShellClash 教程｜官方固件使用代理 | 幻樱杀缭乱 - Atom Feed" href="https://akaliashe.github.io/atom.xml">
@@ -24,7 +24,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://akaliashe.github.io">
-  <img class="avatar" src="https://akaliashe.github.io/images/avatar.png?v=1622905823844" alt="">
+  <img class="avatar" src="https://akaliashe.github.io/images/avatar.png?v=1622905951961" alt="">
   </a>
   <h1 class="site-title">
     幻樱杀缭乱
@@ -111,14 +111,10 @@
 <p>登陆小米路由器后台后，浏览器地址栏 stok= 后面的一段内容即是（选中部分），准备好备用。</p>
 <h3 id="获取-ssh">获取 SSH</h3>
 <pre><code>http://192.168.31.1/cgi-bin/luci/;stok=&lt;STOK&gt;/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B
-
-
 </code></pre>
 <p>将 <STOK> 替换为上一步的值，替换完成后复制到浏览器打开。</p>
 <h3 id="修改默认-ssh-密码为-admin">修改默认 SSH 密码为 admin</h3>
 <pre><code>http://192.168.31.1/cgi-bin/luci/;stok=&lt;STOK&gt;/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20echo%20-e%20'admin%5Cnadmin'%20%7C%20passwd%20root%3B
-
-
 </code></pre>
 <p>将 <STOK> 替换为上上一步的值，替换完成后复制到浏览器打开。</p>
 <h3 id="备份">备份</h3>
