@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://akaliashe.github.io</id>
     <title>幻樱杀缭乱</title>
-    <updated>2021-06-05T15:35:28.328Z</updated>
+    <updated>2021-06-05T15:37:12.331Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://akaliashe.github.io"/>
     <link rel="self" href="https://akaliashe.github.io/atom.xml"/>
@@ -156,8 +156,6 @@ dd if=/dev/mtd9 of=/tmp/syslogbackup/mtd9
 * 强制：勾选
 * IPv4 子网掩码: 设置成 255.255.255.0 即可。
 * DHCP 选项：设置成 “3,上面设置的 IPv4地址” 和 “6, 上面设置的 IPv4地址”。（我这里设置成 3,192.168.3.8 和 6,192.168.3.8 记住填写的是英文逗号，你可以复制我的修改）
-
-
 </code></pre>
 <p>然后选择保存应用。</p>
 <h2 id="最后">最后</h2>
@@ -179,8 +177,6 @@ dd if=/dev/mtd9 of=/tmp/syslogbackup/mtd9
 </ul>
 <figure data-type="image" tabindex="9"><img src="https://oss.qust.me/img/20200523120019.jpg" alt="" loading="lazy"></figure>
 <pre><code>iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
-
-
 </code></pre>
 <p>解释：用来 “iptables 修改 NAT 表，使经过 eth0 的网卡的流量的源 IP 伪装成 eth0 的 IP，而且是动态伪装（直接读取 eth0 的 IP 地址）”</p>
 <h3 id="方法二">方法二</h3>

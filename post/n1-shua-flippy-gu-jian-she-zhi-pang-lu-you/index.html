@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>N1 刷 Flippy 固件，设置旁路由 | 幻樱杀缭乱</title>
-<link rel="shortcut icon" href="https://akaliashe.github.io/favicon.ico?v=1622906499516">
+<link rel="shortcut icon" href="https://akaliashe.github.io/favicon.ico?v=1622907428888">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://akaliashe.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="N1 刷 Flippy 固件，设置旁路由 | 幻樱杀缭乱 - Atom Feed" href="https://akaliashe.github.io/atom.xml">
@@ -28,7 +28,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://akaliashe.github.io">
-  <img class="avatar" src="https://akaliashe.github.io/images/avatar.png?v=1622906499516" alt="">
+  <img class="avatar" src="https://akaliashe.github.io/images/avatar.png?v=1622907428888" alt="">
   </a>
   <h1 class="site-title">
     幻樱杀缭乱
@@ -137,8 +137,6 @@
 * 强制：勾选
 * IPv4 子网掩码: 设置成 255.255.255.0 即可。
 * DHCP 选项：设置成 “3,上面设置的 IPv4地址” 和 “6, 上面设置的 IPv4地址”。（我这里设置成 3,192.168.3.8 和 6,192.168.3.8 记住填写的是英文逗号，你可以复制我的修改）
-
-
 </code></pre>
 <p>然后选择保存应用。</p>
 <h2 id="最后">最后</h2>
@@ -160,8 +158,6 @@
 </ul>
 <figure data-type="image" tabindex="9"><img src="https://oss.qust.me/img/20200523120019.jpg" alt="" loading="lazy"></figure>
 <pre><code>iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
-
-
 </code></pre>
 <p>解释：用来 “iptables 修改 NAT 表，使经过 eth0 的网卡的流量的源 IP 伪装成 eth0 的 IP，而且是动态伪装（直接读取 eth0 的 IP 地址）”</p>
 <h3 id="方法二">方法二</h3>
